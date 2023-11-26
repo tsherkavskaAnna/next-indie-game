@@ -4,7 +4,7 @@ import { marked } from "marked";
 import qs from 'qs';
 
 
-const CMS_URL = 'http://localhost:1337';
+const CMS_URL = 'https://next-reviews-cms-4quo6d5fha-uc.a.run.app';
 // console.log('CMS_URL', CMS_URL);
 
 export const CACHE_TAG_REVIEWS = 'reviews';
@@ -53,7 +53,7 @@ export async function getReview(slug: string): Promise<FullReview | null> {
         title: attributes.title,
         subtitle: attributes.subtitle,
         date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
-        image: CMS_URL + attributes.image.data.attributes.url,
+        image: new URL(CMS_URL + attributes.image.data.attributes.url).href,
         body: marked(attributes.body),
 };
 }
@@ -78,7 +78,7 @@ export async function getReviews(pageSize: number, page?: number): Promise<Pagin
             title: attributes.title,
             subtitle: attributes.subtitle,
             date: attributes.publishedAt.slice(0, 'yyyy-mm-dd'.length),
-            image: CMS_URL + attributes.image.data.attributes.url,
+            image: new URL(CMS_URL + attributes.image.data.attributes.url).href,
         }))
     }; 
 }
