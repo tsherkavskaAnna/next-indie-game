@@ -4,6 +4,12 @@
   ],
   "hints": {
     "typescript-config/consistent-casing": "off",
-    "disown-opener": "off"
+    "disown-opener": "off",
+    "axe/structure": [
+      "default",
+      {
+        "list": "off"
+      }
+    ]
   }
 }

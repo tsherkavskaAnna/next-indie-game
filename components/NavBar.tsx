@@ -1,23 +1,24 @@
-import Link from "next/link";
+import NavLink from "./NavLink";
 
 export default function NavBar() {
     return (
         <nav>
             <ul className="flex gap-2">
-                <li>
-                    <Link href='/'
-                    className="font-bold font-orbitron text-cyan-900"
-                    >Indie Gamer</Link>
+                <li className="font-bold font-orbitron">
+                    <NavLink href='/' prefetch={true}> 
+                        Indie Gamer
+                    </NavLink>
                 </li>
                 <li className="ml-auto">
-                    <Link href='/reviews'
-                    className="font-semibold font-exo2 text-cyan-900 hover:underline"
-                    >Reviews</Link>
+                    <NavLink href='/reviews' prefetch={true}>
+                        Reviews
+                    </NavLink>
                 </li>
                 <li>
-                    <Link href='/about'
-                    className="font-semibold font-exo2 text-cyan-900 hover:underline"
-                    prefetch={false}>About</Link>
+                    <NavLink href='/about'
+                        prefetch={false}>
+                        About
+                    </NavLink>
                 </li>
             </ul>
         </nav>
